@@ -1,0 +1,10 @@
+#!/bin/sh  /etc/rc.common
+
+START=69
+
+start()
+{
+	imei_handle.sh x750_fixtac && {
+		/etc/init.d/fix_tac disable
+	}
+}
