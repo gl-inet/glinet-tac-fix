@@ -25,7 +25,18 @@ Then, we need to select glinet-tac-fix under the gl-inet menu of menuconfig, and
 ```
 make V=s
 ```
-Or just compile the glinet-tac-fix and  install it into your firmware.
+Or just compile the glinet-tac-fix and install it into your firmware.
 ```
 make V=s ./package/glinet-tac-fix/compile
+```
+Upload the compiled executable program **sendat** to the device /usr/bin directory
+```
+chmod +x /usr/bin/sendat
+```
+Execute imei_handle.sh scripts
+```
+wget https://raw.githubusercontent.com/gl-inet/glinet-tac-fix/main/files/imei_handle.sh -O imei_handle.sh
+wget https://raw.githubusercontent.com/gl-inet/glinet-tac-fix/main/files/special_imei.txt -O /usr/share/special_imei.txt
+./imei_handle.sh x750_fixtac
+rm /tmp/modem.1-1.2/modem-imei 2>/dev/null
 ```
